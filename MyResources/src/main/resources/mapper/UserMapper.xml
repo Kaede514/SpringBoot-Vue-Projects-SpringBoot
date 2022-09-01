@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kaede.myResources.mapper.UserMapper">
+
+    <!-- User getUserByName(String userName); -->
+    <select id="getUserByName" resultType="User">
+        select * from user where user_name = #{userName}
+    </select>
+
+    <!-- User selectById(@Param("id") Integer id); -->
+    <select id="selectById" resultType="User">
+        select * from user where user_id = #{id}
+    </select>
+
+    <!-- void update(User user); -->
+    <update id="update">
+        update user set user_name = #{userName}, user_password = #{userPassword},
+                        user_gender = #{userGender}, user_birth = #{userBirth}
+        where user_id = #{userId}
+    </update>
+
+</mapper>
